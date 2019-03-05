@@ -1,0 +1,52 @@
+							Comutadores da camada de enlace
+
+- A função de um comutador é receber quadros da camada de enlace e repassá-los para enlaces de saída;
+
+- O comutador em si é "transparente" aos hospedeiros e roteadores na sub-rede, ou seja, um nó endereça um quadro a outro nó(em vez de endereçar o quadro ao comutador) que elegremente envia o quadro à LAN, sem saber que um comutador receberá um quadro e o repassará;
+
+FILTRAGEM - é a capacidade de um comutador que determina se um quadro deve ser repassado para alguma inteface ou se deve ser descartado;
+
+REPASSE - é a capacidade de um comutador que determina as interfaces para as quais um quadro deve ser dirigido e então dirigir o quadro e essas interfaces;
+
+TABELA DE COMUTAÇÃO - a tabela de comutação contém registros para alguns hospedeiros e roteadores da LAN, mas não necessáriamente para todos. Um registro na tabela de comutação contém:
+	1) o endereço MAC;
+	2) a interface do comutador que leva em direção a esse endereço MAC;
+	3) o hórario em que o registro foi colocado na tabela;
+
+PROPRIEDADES DE COMUTAÇÃO NA CAMADA DE ENLACE
+	- Eliminação de colisões: em uma LAN montada com comutadores(e sem hubs), não existe desperdício de banda causado por colisões! Os comutadores armazenam os quadros e nunca transmitem mais de um quadro em um segmento ao mesmo tempo. Como em um roteador, a vazão máxima agregada de um comutador é a soma da velocidade de todas as interfaces d o comutador;
+	- Enlaces heterogêneos: uma vez que o comutador isola um enlace do outro, os diferente enlaces na LAN conseguem operar em diferentes velocidades e podem ser executados por diferentes mídias;
+	- Gerenciamento: além de oferecer mais segurança, um comutador também facilita o gerenciamento da rede. Por exemplo, se um adaptador apresenta defeito e envia continuamente quadro Ethernet, um comutador pode detectar o problema e desconectar imediatamente o adaptador com defeito;
+
+COMUTADORES versus ROTEADORES
+	- Comutadores
+		Prós:
+			plug-and-play;
+			velocidades alta de filtragem e repasse - têm de processar quadros apenas até a camada 2, enquanto roteadores processam pacotes até a camada 3;
+		Contras:
+			restrita a uma spanning tree;
+			uma rede de comutação de grande porte exigiria, nos hospedeiros e roteadores, tabelas ARP grandes, gerando tráfego e processamento ARP substanciais;
+			sucestíveis a tempestade de difusão causando colapso na rede inteira;
+	- Roteadores
+		Prós:
+			endereçamento hierárquico(e não linear, como o MAC), os pacotes em geral não ficam circulando nos roteadores;
+			pacotes não ficam restritos a uma topologia spanning tree e podem usar o melhor trajeto entre origem e destino;
+			fornecem proteção de firewall contras as tempestades de difusão da camada 2;
+		Contras:
+			não são plug-and-play;
+			tempo de processamento por pacote maior do que comutadores, pois têm de processar até os campos da camada3;
+	- Conclusão:
+		Em geral, redes pequenas, com algumas centenas de hospedeiros, têm uns poucos segmentos de LAN. Para essas, comutadores são satisfatórios, pois localizam o tráfego e aumentam a vazão agragada sem exigir nenhuma configuração de endereços IP. Mas redes maiores, com milhares de hospedeiros, em geral incluem roteadores(além de comutadores). Roteadores fornecem isolamento de tráfego mais robusto, controlam tempestades de difusão e usam rotas "mais inteligentes" entre os hospedeiros da rede;
+OBSERVAÇÕES:
+	- a filtragem e o repasse por comutadores são feitos com uma tabela de comutação;
+	- os comutadores repassam pacotes baseados em endereços MAC, em vez de endereços IP;
+
+	- Comparação entre as características típicas de dispositivos de interconexão
+
+	---------------------------------------------------------------------------------------------------
+						HUBS			ROTEADORES		COMUTADORES
+	---------------------------------------------------------------------------------------------------
+	Isolamento de tráfego			Não			Sim			Sim
+	Plug-and-play				Sim			Não			Sim
+	Roteamento ideal			Não			Sim			Não
+	---------------------------------------------------------------------------------------------------

@@ -1,0 +1,11 @@
+						SMTP - Simple Mail Transfer Control
+
+IMPORTANTE - o SMTP usa conexões persistentes, se o servidor de correio remetente tiver diversas mensagens para enviar ao mesmo servidor destinátario, poderá enviar todas pela mesma conexão TCP.
+
+COMPLEMENTO - o SMTP é um protocolo de envio(pull), então como ele recebe os email ? Para resolver essa questão foram introduzidos protocolos especiais que transferem mensagens do servidor de correio para o host local, entre eles POP3, IMAP e HTTP.
+
+POP3(Post Office Protocol) - é utilizado para transferir correspondência do servidor de correio destinatário para o agente de usuário do destinatário.
+
+IMAP(Internet Mail Acess Protocol) - protocolo com mais recursos e também mais complexo que o POP3. Um servidor IMAP associa cada mensagem a uma pasta, podendo manipulá-la como tal(criar outra pasta, transferir mensagem, etc).
+
+HTTP - acessa-se o email pela internet, o navegador passa a ser o cliente e faz a requisição ao servidor de correio que o envia a mensagem por HTTP. 

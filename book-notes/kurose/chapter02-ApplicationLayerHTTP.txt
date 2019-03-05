@@ -1,0 +1,41 @@
+						HTTP - HiperText Tranfer Control
+
+HTTP - Protocolo da camanda de aplicação da Web, é executado em dois programas, ambos em sistemas finais que conversam entre si por meio de mensagens: um cliente e outro servidor. O HTTP define a estrutura dessas mensagens e o modo como o cliente e o servidor as trocam.
+
+Conexões não persistentes - Cada conexão TCP é encerrada após o servidor enviar o objeto. (Para cada objeto uma conexão é gerada: html em si, cada imagem, vídeo e etc é um objeto).
+
+Conexões persistentes - O servidor deixa a conexão TCP aberta após enviar resposta(quando o servidor recebe requisições consecutivas, os objetos são enviados de forma ininterrupta). O modo padrão do HTTP usa conexões persistentes com paralelismo.
+
+MENSAGENS HTTP 
+	Mensagem de requisição:
+		GET /somedir/page.html HTTP/1.1			linha de requisição(3 campos): método, URL e versão do HTTP;
+		Host: www.someschool.edu			específica o host no qual o objeto reside;
+		Connection: close				fecha as conexões TCP após o envio dos objetos requisitados(conexão não persistente);
+		User-agent: Mozilla/5.0				especifica o navegador que está fazendo a requisição;
+		Accept-language: fr				mostra que o usuário prefere uma versão em francês do objeto se houver no servidor;
+
+	Mensagem de resposta:
+		HTTP/1.1 200 OK					linha de estado(3 campos): versão do protocolo, código de estado e sua msg correspondente;
+		Connection: close				informa ao cliente que fechará as conexões TCP após o envio da mensagem;
+		Date: Tue, 09 Aug 2011 15:44:04 GMT		indica a hora e a data que a resposta HTTP foi criada e enviada pelo servidor;
+		Server: Apache/2.2.3 (CentOS)			mostra que a mensagem foi criada por um servidor apache(semelhante ao user-agente acima);
+		Last-Modified: Tue, 09 Aug 2011 15:11:03 GMT	indica a hora e data em que o objeto foi criado ou sofreu sua última alteração;
+		Content-Length: 6821				indica o número de bytes do objeto que está sendo enviado;
+		Content-Type: text/html				mostra que objeto presente no corpo da mensagem é um texto HTML;
+		(data data data data data ...)			corpo da entidade(parte principal da mensagem);
+
+	Alguns códigos de estado e suas frases correspondetes:
+		200 OK						requisição bem-sucedida e a informação é entregue com a resposta;
+		301 Moved Permanently				objeto requisitado removido permanentemente;
+		400 Bad Request					código genérico de erro que indica que a requisição não pôde ser atendida pelo servidor;
+		404 Not Found					o documento requisitado não existe no servidor;
+		505 HTTP Versin not Supported			a versão do HTTP requisitada não é suportada pelo servidor;
+
+Cookies - Permite que sites monitorem seus usuários(por exemplo, páginas que visitou, em que ordem e em que horários). A tecnologia dos cookies tem 4 componentes:
+	1) Uma linha de cabeçalho de cookie na mensagem de resposta HTTP - Set-cookie: 1678(número de identificação do usuário);
+	2) Uma linha de cabeçalho de cookie na mensagem de requisição - Cookie: 1678;
+	3) Um arquivo de cookie mantido no sistema final do usuário e gerenciado pelo navegador do usuário;
+	4) Um bando de dados de apoio no site;  
+
+Cache Web(servidor proxy) - É uma entidade da rede que atende requisições HTTP em nome de um servidor Web de origem. Mantém cópias de objetos recentemente acessados/requisitados.
+	Observação: para evitar que servidores caches tenham armazenados em si conteúdos desatualizados, utiliza-se um GET condicional no cabeçalho de requisição do tipo -> If-Modified-Since: data do último acesso(similar ao Last-Modified);

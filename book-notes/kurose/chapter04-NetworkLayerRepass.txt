@@ -1,0 +1,23 @@
+							Repasse
+
+ARQUITETURA DE UM ROTEADOR:
+	1) Portas de entrada:
+		- realiza a função de camada física de terminar um enlace físico de entrada em um roteador;
+		- executas as camadas de enlace necessárias para interoperar com as funções de camada de enlace do outro lado do enlace de entrada;
+		- realiza a função de exame na porta de entrada, consulta a tabela de repasse para determinar a porta de saída do roteador;
+		- repassa pacotes de controle de uma porta de entrada até o processador de roteamento;
+		- concluindo, etapas da porta de entrada: pesquisar um endereço de IP(combinação), enviar o pacote para o elemento de comutação(ação);
+	2) Elemento de comutação(repasse):
+		- conecta as portas de entrada do roteador às suas portas de saída - uma rede dentro de um roteador da rede;
+		- comutação por memória: o processador de roteamento extrai o destino, consulta a porta de saída e copia o pacote para o buffer da mesma;
+		- comutação por barramento: as portas de entrada transferem diretamento um pacote para a porta de saída por um barramento compartilhado sem a intervenção do processador de pacotes(switch);
+		- comutação por rede de interconexão(crossbar): 2n barramentos que conectam n portas portas de entrada com n portas de saída, logo, redes do tipo crossbar são capazes de repassar vários pacotes em paralelo;
+	3) Porta de saída:
+		- armazena os pacotes que foram repassados a ela através do elemento de comutação e, então, os transmite até o enlace de saída, realizandoas funções necessárias da camada de enlace e da camada física;
+		- quando enlace é bidirecional, uma porta de saída para o enlace é emparelhada com a porta de entrada para esse enlace na mesma placa de linha(uma placa de circuito impresso contendo uma ou mais portas de entrada, e que está conectada ao elemento de comutação);
+	4) Processador de roteamento:
+		- executa os protocolos de roteamento;
+		- mantém as tabelas de roteamento e as informações de estado do enlace e calcula a tabela de repasse para o roteador;
+		- também realiza funções de gerenciamento de rede;
+
+NAT(Network Adress Translate) - Tradutor de Endereço de Rede, um pacote chega, cujo número de porta da camada de tranporte combinacom determinado valor , terá seu número de porta reescrito antes de ser repassado(ação);

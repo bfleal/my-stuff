@@ -1,0 +1,29 @@
+					RDT(Reliable Data Transfer) - Transferência Confiável de Dados
+
+Resumo de Mecanismos de Transferência Confiável de Dados e suas Utilizações
+
+
+	MECHANISM 							USE, COMMENTS
+
+Checksum 			Used to detect bit errors in a transmitted packet.
+
+Timer 				Used to timeout/retransmit a packet, possibly because the packet (or its ACK) was lost within the channel. Because
+    				timeouts can occur when a packet is delayed but not lost (premature timeout), or when a packet has been received by the
+  				receiver but the receiver-to-sender ACK  as been lost, duplicate copies of a packet may be received by a receiver.
+
+Sequence 			number Used for sequential numbering of packets of data flowing from sender to receiver.
+
+Gaps 				in the sequence numbers of received packets allow the receiver to detect a lost packet. Packets with duplicate sequence
+ 				numbers allow the receiver to detect duplicate copies of a packet.
+
+Acknowledgment 			Used by the receiver to tell the sender that a packet or set of packets has been received correctly. Acknowledgments will
+				typically carry the sequence number of the packet or packets being acknowledged. Acknowledgments may be individual or
+				cumulative, depending on the protocol.
+
+Negative acknowledgment 	Used by the receiver to tell the sender that a packet has not been received correct- ly. Negative acknowledgments will 
+				typically carry the sequence number of the packet that was not received correctly.
+
+Window, pipelining 		The sender may be restricted to sending only packets with sequence numbers that fall within a given range. By allowing 
+				multiple packets to be transmitted but not yet acknowledged, sender utilization can be increased over a stop-and-wait 
+				mode of operation. We’ll see shortly that the window size may be set on the basis of the receiver’s ability to receive 
+				and buffer messages, or the level of congestion in the network, or both.

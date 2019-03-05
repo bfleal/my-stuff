@@ -1,0 +1,17 @@
+						Roteamento
+
+Algoritmo de roteamento global - calcula o caminho de menor custo entre uma origem e um destino usando conhecimento completo e global sobre a rede. Considera como entrada todas a conectividade entre todos os nós e todos os custos dos enlaces. Algoritmos com informação global de estado são com frequência denominados algoritmos de estado de enlace(LS-link-state);
+
+Algoritmo de roteamento descentralizado - o cálculo do menor caminho e feito de modo iterativo e distribuído. Nenhum nó tem informação completa sobre os custos de todos os enlaces da rede. Cada nó começa sabendo apenas os custos dos enlaces ligados a ele;
+
+CLASSIFICAÇÃO DE ALGORITMOS DE ROTEAMENTO
+	- Estáticos: as rotas mudam muito devagar ao longo do tempo, muitas vezes como resultado de um intervenção humana(edição da tabela de rapasse);
+	- Dinâmicos: mudam os caminho de roteamento a medida que mudam as cargas de tráfego ou a topologia da rede. Ao mesmo tempo em que são mais sensíveis a mudanças na rede, algoritmos dinâmicos também são mais suscetíveis a problemas com loops de roteamento e oscilação da rede;
+	- Sensível à carga: custos de enlace variam dinamicamente para refletir o nível corrente de congestionamento no enlace subjacente. Se houver alto custo associado com um enlace que está congestionado, um algoritmo de roteamento tenderá a escolher rotas que evitem esse enlace;
+	- Insensível à carga: o custo de um enlace não reflete explicitamente seu nível de congestionamento atual(nem o mais recente), são os algoritmos usados na Internet hoje;
+
+ALGORITMO DE ESTADO DE ENLACE(Link-State - LS) - em um algoritmo de estado de enlace, a topologia e todos os custos de enlace são conhecidos, isto é, estão disponíveis como dados para o algoritmo de estado de enlace. Isso se consegue fazendo cada nó transmitir pacotes de estado de enlace a todos ou outros nós da rede, uma vez que cada um desses pacotes contém as identidades e os custos dos enlaces ligados a ele;
+
+ALGORITMO DE ROTEAMENTO DE VETOR DE DISTÂNCIAS(Distance-vector - DV) - enquanto LS usa informação global, o algoritmo de vetor de distâncias é iterativo, assíncrono e distribuído. É distribuído porque cada nó recebe alguma informação de um ou mais vizinhos diretamente ligados a ele, realiza cálculos e, em seguida, distribuí o resultado de seus cálculos para seus vizinhos. É iterativo porque esse processo continua até que mais nenhum informação seja trocada entre vizinhos. É assíncrono porque não requer quer todos os nós rodem simultaneamente.
+
+AS(Autonomous System - Sistema autônomos);

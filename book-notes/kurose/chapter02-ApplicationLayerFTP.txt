@@ -1,0 +1,21 @@
+						FTP - File Transfer Protocol
+
+IMPORTANTE - O FTP usa duas conexões TCP paralelas para transferir um arquivo:
+	Conexão de controle: é usada para enviar informações de controle entre os dois hospedeiros - como usuário, senha e comandos(get, put, etc);
+	Conexão de dados: é usada para enviar de fato um arquivo, para cada arquivo uma nova conexão de dados é aberta(não persistente);
+
+Alguns dos comando mais comuns FTP(os comando são em letra maiúscula com 4 digítos):
+
+		USER usename: 			usado para enviar identificão do usuário ao servidor;
+		PASS password:			usado para enviar a senha do usuário ao servidor;
+		LIST:				pede ao servidor para enviar um lista com todos os itens do diretório corrente remoto;
+		RETR filename: 			usado para obter(extrair) um arquivo do diretório atual do hospedeiro remoto;
+		STOR filename:			usada pra inserir(armazenar) um arquivo no diretório atual do hospedeiro remoto;
+
+
+Algumas respostas a requisições FTP e suas respectivas mensagens:
+		
+		331 Nome de usuáio OK, senha requisitada;
+		125 Conexão de dados já aberta; iniciando transferência;
+		425 Não é possível abrir a conexão de dados;
+		452 Erro ao escrever o arquivo;

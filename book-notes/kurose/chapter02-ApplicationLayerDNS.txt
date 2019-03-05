@@ -1,0 +1,26 @@
+						DNS - Domain Name System
+
+DNS - Serviço de diretório que traduz nomes de hospedeiro para endereço IP. É um banco de dados distribuído executado em uma hierarquia de servidores DNS, e um protocolo da camada de aplicação que permite que hosts consultem o banco de dados de servidores DNS(usa UDP).
+
+FUNCIONAMENTO
+	1) A própria máquina do usuário executa o lado cliente da aplicação DNS;
+	2) O navegador extrai o nome de host(www.google.com) do URL e passa para o lado cliente da aplicação DNS;
+	3) O cliente DNS envia uma consulta contendo o nome do host para um servidor DNS;
+	4) O cliente DNS por fim recebe uma resposta, que inclui o endereço IP correspondente ao nome de hospedeiro;
+	5) Tão logo o navegador receba o endereço do DNS, pode abrir uma conexão TCP com o processo servidor HTTP localizado na porta 80 naquele endereço IP;
+
+OUTROS SERVIÇOS PROVIDOS PELO DNS
+	1) Apelidos(aliases) de host;
+	2) Apelidos de servidores de correio;
+	3) Distribuição de carga - rodízio de DNS para distribuir o tráfico em servidores Web replicados;
+
+HÁ 3 CLASSES DE SERVIDORES DNS
+	Servidores DNS raiz - há 13 no mundo, a maioria no USA;
+	Servidores DNS de Domínio de Alto Nível(TLD) - são responsáveis por domínios de alto nível como com, org, net, edu e gov, e domínios de países;
+	Servidores DNS altoritativos - mantém os registros DNS de todos os hosts de uma organização que possam ser acessados publicamente pela Internet;
+	Servidor de DNS local - não pertence a hierarquia de servidores DNS, mas é fundamental para a arquitetura DNS;
+
+CONSULTA DNS(a consulta ao servidor DNS local é recursiva e todas as demais são iterativas)
+	host requisitante -> local -> raiz -> local -> TLD -> local -> autoritativo -> local -> requisitante	
+
+Registro de Recurso(RR) - fornecem mapeamentos de nomes de hospedeiros para endereços IP. Cada mensagem de resposta DNS carrega um ou mais registros de recursos.

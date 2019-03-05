@@ -1,0 +1,21 @@
+						Resumo de introdução sobre camadas
+
+Camada de aplicação - É onde residem aplicações de redes e seus protocolos. A aplicação em um sistema final utiliza o protocolo para trocar pacotes de informação com a  aplicação de outro sistema final. Chama-se de MENGAGEM esse pacote de informação na camada de aplicação. A camada de aplicação de Internet inclui muitos protocolos, tais como:
+				HTTP(Hipertext Transfer Protocol) - Provê requisição e transferência de documentos pela Web;
+				SMTP(Simple Mail Transfer Protocol) - Provê transfêrencia de mensagens de correio eletrônico;
+				FTP(File Transfer Protocol) - Provê a transfêrencia de arquivos entre dois sistemas finais;
+				DNS(Domain Name System) - Provê a tradução de endereços em nomes legíveis
+
+Camada de transporte - Carrega mensagens da camada de aplicação entre os lados do cliente e servidor de uma aplicação. Chama-se de SEGMENTO um pacote na camada de transporte. Há dois protocolos de transporte na Internet:
+				TCP(Transmission Control Protocol) - Garante a entrega de mensagens da camada de aplicação ao destino e o controle de fluxo;
+				UDP(User Datagrama Protocol) - Provê serviço não orientado a conexão para suas aplicações; 
+
+Camada de rede - A camada de rede da Internet é responsável pela movimentação, de um host para outro, de pacotes da camada de rede, conhecidos como DATAGRAMAS. Ele provê a entrega de um SEGMENTO à camada de transporte no host de destino. É onde se encontra o procolo da internet:
+				IP(Internet Protocol) - Define os DATAGRAMAS e as rotas que esses datagramas seguem entre origens e destinos;
+
+Camada de Enlace - Leva o pacote de um nó(host ou roteador) ao nó seguinte da rota, um pacote da camada de enlace é denominado QUADRO:
+				Datagrama(Camada de Rede - nó anterior) -> Camada de Enlace -> Datagrama(Camada de Rede - nó sequinte);
+		Procotolos:
+				Ethernet, WI-Fi e DOCSIS(Rede de acesso por cabo);
+
+Camada Física - Movimenta os bits individuais que estão dentro do QUADRO de um nó para o sequinte. Os protocolos dessa camada dependem do enlace e, além idisso, do próprio meio de transmissão do enlace(por exemplo, fios de cobre trançado ou fibra ótica monomodal).

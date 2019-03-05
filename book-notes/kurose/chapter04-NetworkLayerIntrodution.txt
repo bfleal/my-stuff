@@ -1,0 +1,52 @@
+						Camada de Rede - Introdução, termos e conceitos
+
+Repasse - envolve a transferência de um pacote de um enlace de entrada para um enlace de saída dentro dentro de um ÚNICO roteador;
+
+Roteamento - envolto TODOS os roteadores de uma rede, cujas interações coletivas por meio do protocolo de roteamento determinam os caminhos que os pacotes percorrem em suas viagens do nó de origem ao nó de destino;
+
+IMCP(Internet Message Control Protocol) - Protocolo de Mensagem de Controle de Protocolo;
+
+Algoritmo de Roteamento - o trabalho de um algoritmo de roteamento é determinar bons caminhos(ou rotas) entre remetentes e destinatários. As duas classes mais predominantes dos algoritmos de controle de roteamento são: algoritmos de controle de enlace e de vetor de distâncias;
+	Algoritmo de roteamento centralizado: roda em um local central e descarrega informações de roteamento a cada um dos roteadores;
+	Algoritmo de roteamento descentralizado: funciona com um pedaço do algoritmo de roteamento funcionando em cada roteador;
+
+Comutador de Pacotes - dispositivo geral de comutação de pacotes que transfere um pacote de interface de enlace de entrado para interface de saída conforme o valor que está em um campo no cabeçalho do pacote;
+
+Comutadores de camada de enlade - baseiam a decisão de repasse no valor que está no campo da camada de enlace;
+
+Roteadores - baseiam sua decisão no valor que está no campo da camada de rede(usa-se a terminologia roteador quando de trata da camada de rede);
+
+Modelo de serviço de rede - define as características do transporte de dados fim a fim entre uma borda de rede e a outra, isto é, entre sistemas finais remetente e destinátario;
+
+SERVIÇOS que a camada de rede pode prover:
+	- Entrega garantida: esse serviço assegura que o pacote mais cedo ou mais tarde chegará a seu destino;
+	- Entrega garantida com atraso limitado: não somente assegura a entrega de um pacote, mas também a entrega com um atraso limitado e especificado;
+	- Entrega de pacotes na ordem: garante que pacotes chegarão ao destino na ordem em que foram enviados;
+	- Largura de banda mínima garantida: esse serviço de camada de rede emula o comportamento de um enlace de transmissão com uma taxa de bits;
+	- Jitter máximo garantido: assegura que a quantidade de tempo entre a transmissão de dois pacotes sucessivos no remetende seja igual à quantidade de tempo entre o recebimento dos dois pacotes no destino(ou que esse espaço de tempo não dure mais que o previsto);
+	- Serviços de segurança: utilizando uma chave de sessão secreta conhecida somente por um hospedeiro de origem e de destino, a camada de rede no computador de origem pode codificar a carga útil de todos os datagramas que estão snedo enviados ao computador de destino onde essa carga é decoficada;
+
+IMPORTANTE - a camada de rede da INTERNET fornece um ÚNICO modelo de serviço, conhecido como SERVIÇO DE MENOS ESFORÇO(ou nenhum serviço);
+
+ARQUITETURA ATM - habilita várias opções de modelo de serviço, o que significa que, dentro de uma mesma rede, podem ser oferecidas conexões diferentes com classes de serviço diferentes. Dois dos modelos de serviço mais importantes ATM são:
+	- Serviço de rede de taxa constante de bits(Constant Bit Rate - CBR): prove fluxo de pacotes com uma tabulação virtual cujas propriedades são iguais às de um hipotético enlace de transmissão dedicado de largura de banda fixa entre os hospedeiros remetente e destinatário;
+	- Serviço de rede de taxa de bits disponível(Available Bit Rate - ABR):	serviço de esforço melhorado, assim como acontece no modelo de serviço da Internet, também com o serviço ABR pode haver perda de células. Mas, ao contrário da Internet, as células não podem ser reordenadas e é garantida uma taxa mínima de transmissão de célular(minimum cell transmission rate - MCR) para um conexão usando o serviço ABR;
+
+REDES DE CIRCUITO VIRTUAIS(redes CV) - redes de computadores que oferecem que oferecem serviço orientados para conexão(apresentação) na camada de rede:
+	1) Estabelecimento de CV: 
+		- a camada de transporte do remetente contata a camada de rede, especifica o endereço do receptor e espera até a rede estabelecer o CV;
+		- a camada de rede determina o caminho entre remetente e destinatário, ou seja, a séria de enlaces e roteadores por onde vão os pacotes;
+		- determina no número de CV para cada enlace ao longo do caminho;
+		- adiciona um registro na tabela de repasse em cada roteador no caminho;
+	2) Transferência de dados: 
+		- assim que estabelecido o CV, pacotes podem começar a fluir ao longo dele;
+	3) Encerramento do CV:
+		- remetente ou destinatário informa a camada de rede que deseja desativar o CV;
+		- a camada de rede então informa o outro lado da conexão do término;
+		- atualiza as tabelas de repasse em cada um dos roteadores de pacotes no caminho para indicar que o CV não exite mais;
+	4) Mensagem de sinalização:
+		- mensagens que os sistemas finais enviam à rede para iniciar ou encerrar o CV e modificar o estado de conexão em tabelas de roteadores;
+	4) Mensagem de protocolo:
+		- protocolos usados para trocar as mensagens de sinalização;
+
+REDES DE DATAGRAMAS - redes de computadores que oferecem apenas serviço NÃO orientado para conexão na camada de rede(a Internet usa esse tipo de rede);	

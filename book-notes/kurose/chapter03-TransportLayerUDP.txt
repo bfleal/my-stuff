@@ -1,0 +1,10 @@
+					Transporte não Orientado para Conexão - UDP
+
+- Melhor controle no nível da aplicação sobre quais dados são enviados e quando;
+
+- Não há estabelecimento de conexão, simplesmente envia as mensagens sem nenhuma preliminar formal e, assim, não introduz atraso algum para estabeler a conexão;
+
+- Não há estados de conexão e não monitora nenhum paramêtro que garante a entrega dos dados(suporta um número maior de clientes ativos);
+
+- Pequeno excesso de cabeçalho de pacote, apenas 8 bytes de excesso pra informações de cabeçalho, diferente do TCP que tem 20 bytes;
+

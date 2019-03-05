@@ -1,0 +1,18 @@
+								Alguns ataques
+
+- DoS(Denial-of-Service) - Ataque de recusa de serviço, torna uma rede, hospedeiro ou outra parte da infraestrutura inutilizável por usuários verdadeiros.
+São divididos em três categorias:
+	Ataque de Vulnerabilidade - Envolve o envio de algumas mensagens bem elaboradas a uma aplicação vulnerável ou a um sistema operacional sendo executado em um hospedeiro direcionado. Se a sequência correta de pacotes é enviada a uma aplição ou sistema operacional vulnerável, o serviço pode parar ou o hospedeiro pode pifar;
+
+	Inundação na largura de banda - O atacante envia um grande número de pacotes ao host direcionado - tantos pacotes que o enlace de acesso do alvo se entope, impedindo que pacote legítmos alcancem o servidor;
+
+	Inundação na conexão - O atacante estabelece um grande número de conexões TCP semiabertas ou abertas no host alvo. O host fica atolado com essas conexões falsas que deixa de receber conexões verdadeiras;
+
+	DDoS(Distribued Denial-of-Service) - DoS distribuído;
+
+- IP spoofing - Capacidade de introduzir pacotes na Internet com um endereço de origem falso, umas das maneiras as quais um usuário pode se passar por outro.
+
+- Ataque SYN Flood(Inundação SYN) - Neste ataque, o vilão envia um grande número de segmentos SYN TCP , sem concluir a terceira etapa de apresentação. Com esse acúmulo de segmentos SYN, os recursos de conexão do servidor podem se esgotar depressa já que são alocados(mas nunca usados) para conexões semiabertas; clientes legítimos, então, não são atendidos.
+	Defesa -> SYN cookies - quando um servidor recebe um segmento SYN, ao invés dele criar uma conexão semiaberta para esse SYN, o servidor cria um número de sequência TCP inicial(cookie), que é um função hash de endereços de origem e destino IP e números de porta do segmento SYN, e espera o cliente retornar um SYNACK compartível com o enviado e com o cookie para depois abrir a conexão, não alocando nenhum recurso em resposta ao SYN falso original;
+
+- Envenenamento de comutador - consiste em enviar uma grande quantidade de pacotes ao comutador com muitos endereços MAC de origem falsos e diferentes, enchendo assim a tabela de comutação com registros falsos e não deixando espaço para os endereços MAC dos hospedeiros legítimos. Isso faz o comutador enviar a maioria dos quadros por difusão, podendo então serem apanhados pelo esquadrinhador;

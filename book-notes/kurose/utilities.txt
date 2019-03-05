@@ -1,0 +1,9 @@
+						Programas úteis
+
+1) traceroute - traça a rota entre a origem e o destino dos pacotes.
+	     	Saída: 
+			número de roteadores    nome do roteador   endereço do roteador    atrasos de ida e volta para 3 tentativas.
+
+2) Wireshark
+
+3) Nmap	

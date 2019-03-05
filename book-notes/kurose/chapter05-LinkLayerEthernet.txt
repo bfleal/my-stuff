@@ -1,0 +1,21 @@
+								LAN Ethernet
+
+Primeira LAN de alta velocidade amplamente disseminada;
+
+ESTRUTURA DO QUADRO ETHERNET
+	- Campo de dados(46 a 1.500 bytes): esse campo carrega o datagrama IP;
+	- Endereço de destino(6 bytes): esse campo contém o endereço MAC do adaptador de destino. Quando um adaptador recebe um quadro Ethernet com seu endereço de destino, ou o endereço MAC de difusão(FF-FF-FF-FF-FF-FF), ele passa esse campo de dados para a camada de rede. Se receber um quadro com qualquer outro endereço MAC, ele o descarta;
+	- Endereço de origem(6 bytes): esse campo contém o endereço MAC do adaptador que transmite o quadro para a LAN;
+	- Campo de tipo(2 bytes): o campo de tipo permite que a Ethernet multiplexe protocolos da camada de rede, o IP e outros protocolos da camada de rede têm seu próprio número de tipo padronizado. Assim, quando um quadro Ethernet chega no adaptador, este precisa saber para qual protocolo da camada de rede ele deve passar(isto é, demultiplexar) o conteúdo do campo de dados;
+	- Verificação de redundância cíclica(CRC)(4 bytes): a finalidade do campo de CRC pe permitir que o adaptador receptor detecte se algum erro de bit foi introduzido no quadro;
+	- Preâmbulo(8 bytes): o quadro Ethernet começa com um campo de preâmbulo de 8 bytes. Os primeiros 7 bytes do preâmbulo sever para "despertar" os adaptadores receptores e sincronizar seus relógios com o relógio do remetente. O último byte do preâmbulo alertam o adaptador de que "algo importante" está chegango;
+
+TECNOLÓGIAS ETHERNET
+	10BASE-2 		Cabo coaxial		10 Mbits/s		500m
+	10BASE-T 		Par transado		10 Mbits/s		100m
+	100BASE-T 		Par transado		100 Mbits/s		100m		
+	10GBASE-T 		Par transado		10 Gbits/s		100m
+	100BASE-FX		Fibra óptica		100 Mbits/s		km's		
+	100BASE-SX		Fibra óptica		100 Mbits/s		km's
+	100BASE-BX		Fibra óptica		100 Mbits/s		km's
+	1000BASE-LX		Fibra óptica		1000 Mbits/s		km's

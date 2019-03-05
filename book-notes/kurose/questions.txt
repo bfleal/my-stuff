@@ -1,0 +1,7 @@
+						Para pensar...
+
+- O que os projetistas de computadores podem fazer para proteger os aparelhos que utilizam a Internet contra as ameaças de malware ?
+
+- O que os projetistas de computadores podem fazer para de proteger contra ataques DoS ?
+
+- Como determinar se o buffer de um roteador está livre ?

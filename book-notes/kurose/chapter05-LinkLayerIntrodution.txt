@@ -1,0 +1,23 @@
+							Camada de Enlace - Introdução
+
+CAMADA DE ENLACE - Há dois tipos de canais completamente diferentes dessa camada, são eles:
+	Broadcast(difusão): conectam múltiplos hospedeiros em LANs sem fio, redes por satélite e redes de acesso híbridas de cabo coaxial e de fibra(HFC). Como muitos hospedeiros são conectados ao mesmo canal de comunicação por difusão, é necessário um protocolo, denominado de acesso ao meio, para coordenar a transmissão por quadros;
+	Ponto a Ponto: existente entre dois roteadores conectados por um enlace de longa distância, ou entre um computador no escritário de um usuário e o comutador Ethernet próximo ao qual ele está conectado;
+
+NÓ - qualquer tipo de dispositivo que rode um protocolo da camadade de enlace(hosts, roteadores, comutadores e pontos de acesso Wi-Fi);
+
+NÓ ATIVO - diz-se que um nó é ativo quando ele tem quadros a enviar;
+
+ENLACE - canais de comunicação que conectam nós adjacentes nos caminhos de comunicação;
+
+QUADRO - campo de dados no qual o datagrama da camada de rede é inserido, e em uma série de campos de cabeçalho.
+
+SERVIÇOS OFERECIDOS PELA CAMADA DE ENLACE
+	Enquadramento de dados - encapsula cada datagrama da camada de rede dentro de um quadro da camada de enlace antes de transliti-lo pelo enlace;
+	Acesso ao enlace - um protocolo de controle de acesso ao meio(medium control acess - MAC) específica as regras segundo as quais um quadro é transmitido pelo enlace. O protocolo MAC serve para coordenar as transmissões de quadros de muitos nós;
+	Entrega confiável - garante o transporte sem erro de cada datagrama da camada de rede pelo enlace(usado apenas por enlaces que costumam ter alta taxa de erros - enlace sem fio);
+	Detecção e correção de erros - detecção de erros na camada de enlace é executada em hardware onde um nó receptor pode decidir incorretamente que um bit de um quadro é zero quando foi transmitido como 1 e vice-versa. A correção dos erros é semelhando à detecção de erros, exceto que um receptor não só detecta quando ocorrem os erros no quadro, mas também determina exatamente em que lugardo quadro ocorreram e, então, os corrige;
+
+EDC(Error detection and correction) - bits de detecção de erro e correção; 
+
+ARP(Address Resolution Protocol) - Protocolo de Resolução de endereço;

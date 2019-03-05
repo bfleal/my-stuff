@@ -1,0 +1,14 @@
+				Técnicas de detecção e correção de erros na camada de Enlace
+
+Verificação de paridade - utiliza um único bit de paridade. O remetente apenas inclui um bit adicional eescolhe o valor desse bit de modo que o número total de "1" nos dados + 1 bits seja par ou ímpar;
+
+Soma de verificação - em técnicas de soma de verificação, os d bits de dados são tratados como uma sequência de números inteiros de k bits. Um método simples de soma de verificação é somar esses inteiros de k bits e usar o total resultante como bits de detecção de erros;
+
+Verificação de redundância cíclica(CRC - Cyclic Redundancy Check) - códigos de CRC também são conhecidos como códigos polinomiais, já que é possível considerar a cadeia de bits a ser enviada como um polinômio cujos coeficientes são os valores 0 e 1 na cadeia, sendo as operações interpretadas como aritmética polinomial;
+	Cálculo: 
+		R = D.2**r XOR G
+	Legenda:
+		R - bits de CRC;
+		D - bits de dados a enviar;
+		r - quantidade de bits adicionais;
+		G - gerador(quantidade de bits adicionais + 1); 

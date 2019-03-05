@@ -1,0 +1,13 @@
+						Redes Locais Vituais(VLANs)
+
+REDES LOCAIS VISTUAIS(VLANs):
+	Como o nome já sugere, um comutador que suporta VLANs permite que diversas redes locais vistuais sejam executadas por meio de uma única infraestrutura física de uma rede local virtual. Hospedeiros dentro de uma VLAN se comunicam como se eles(e não outros hospedeiros) estivessem conectados ao comutador. Em uma VLAN baseada em portas, as portas(interfaces) do comutador são divididas em grupos pelo gerente da rede. Cada grupo constitui uma VLAN, com as portas da VLAN formando um domínio de difusão(por exemplo, o tráfego de difusão de uma porta só pode alcançar outras portas do grupo);
+
+ENTRONCAMENTO DE VLANs: 
+	Abordagem utilizada para interconetar os comutadores das VLANs. Nessa abordagem, uma porta especial em cada comutador é configurada como uma porta de tronco para interconectar os dois comutadores da VLAN. A porta de tronco pertence a todas as VLANs, e quadros enviados a qualquer VLAN são encaminhados pelo enlace de tronco ao outro comutador;
+
+QUADRO ATRAVESSANDO O TRONCO VLAN:
+	Consiste no quadro padrão Ethernet com um rótulo de VLAN de quatro bytes adicionado no cabeçalho que transporta a identidade da VLAN à qual o quadro pertence; 
+	O próprio rótulo da VLAN consiste em:
+		- um campo de 2 bytes chamado Rótulo de Identificação de Protocolo(Tag Protocol identifier - TPID)(com um valor hexadecimal fixo 81-00);
+		- um campo de 2 bytes de Controle de Informação de Rótulo contendo um campo de identificação da VLAN com 12 bits, e um campo de prioridade com 3 bits semelhante em próposito ao campo TOS(Type of Service) do datagrama IP;

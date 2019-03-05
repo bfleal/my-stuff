@@ -1,0 +1,11 @@
+				Conteúdos à serem vistos
+
+- Como criar um pacote com qualquer endereço de origem, contéudo e endereço de destino ?
+
+- Como criar um protocolo ?
+
+- Aprender usar Wireshark;
+
+- Conhecer as funcionalidades do nmap;
+
+- Tabela de repasse do roteador;

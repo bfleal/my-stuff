@@ -1,0 +1,74 @@
+					IP(Internet Protocol) - Protocolo da Internet
+
+FORMATO DATAGRAMA IPv4(20 bytes):
+	- Número da versão(4 bits): especifica a versão do protocolo IP do datagrama;
+	- Comprimento de cabeçalho(4 bits): determinam no datagrama IP onde os dados de fato começam;
+	- Tipo de serviço- ToS(4 bits): diferencia os diferentes tipo de IP(baixo atraso, alta vazão ou confiabilidade);
+	- Comprimento do datagrama(16 bits): é o comprimento total do datagrama IP(cabeçalho + dados) medido em bytes;
+	- Identificador, flags, deslocamento de fragmentação: esses 3 campos tem a ver com a fragmentação do IP;
+	- Tempo de vida(Time to Live-TTL): garante que datagramas não fiquem na rede para sempre, se o TTL chegar a 0, o datagrama dever ser descartado;
+	- Protocolo: indica o protocolo de camada de transporte específico ao qual a porção de dados do datagrama IP deverá ser passada;(6-IP, 17-UDP)
+	- Soma de verificação de cabeçalho: auxília o roteador na detecção de erro de bits em um datagrama IP recebido;
+	- Endereços IP de origem e de destino: insere o endereço de IP de origem e de destino em seus respectivos campos;
+	- Opções: permite que um cabeçalho IP seja estendido;
+	- Dados(carga útil): contém o segmento da camada de transporte a ser entregue ao destino, contudo, pode carregar outros tipo de dados(ICMP);
+
+Interface - fronteira entre o hospedeiro e o enlace físico, o mesmo vale para a fronteira entre o enlace e o roteador, cada combinação enlace-hospedeiro/roteador é uma interface. O IP exige que cada interface tenha seu endereço IP;
+
+Sub-rede - ilhas de redes isoladas com interfaces fechando as terminações das redes isolodas destacando cada interface de seu hospedeiro ou roteador;
+
+
+ENDEREÇAMENTO:
+	- Roteamento Interdomínio sem Classes(Classless Interdomain Routing-CIDR): estratégia de atribuição de endereços da Internet. O CIDR generaliza a noção de endereçamento de sub-rede. O endereço IP é dividido em duas partes e, mais uma vez, tem a forma decimal com pontos de separação a.b.c.d/x, em que x indica o número de bits da primeira parte do endereço(prefixo), por exemplo, a.b.c.d/21;
+	- Endereçamento com Classes: antes da adoção do CIDR, os tamanhos das parcelas de um endereço IP estavam limitados a 8,16 ou 24 bits, já que sub-redes com endereços de sub-rede de 8, 16 e 24 eram conhecidas como redes de classe A, B e C, respectivamente. Porém esse modo de endereçamento se tornou muito problemático, visto que ou garantia poucos endereços a sub-rede ou em endereços em excesso de acordo com cada classe utilizada;
+
+
+DHCP(PROTOCOLO DINÂMICO DE CONFIGURAÇÃO DE HOSPEDEIRO):
+	- permite que um hospedeiro obtenha(seja alocado a) um endereço IP de maneira automática;
+	- permite que o hospedeiro descubra informações adicionais, como a máscara de sub-rede, o endereço do primeiro roteador(default gateway) e o endereço de seu servidor DNS local;
+	- é um processo de 4 etapas:
+		1) Descoberta do servidor DHCP: o cliente envia uma MENSAGEM DE DESCOBERTO DHCP dentro de um pacote UDP para a porta 67;
+		2) Oferta(s) dos servidores DHCP: o servidor DHCP que recebe uma mensagem de descoberta DHCP responde com uma MENSAGEM DE OFERTA DHCP;
+		3) Solicitação DHCP: o cliente escolherá dentre uma das ofertas do servidor e responderá à aferta selecionada com uma MENSAGEM DE SOLICITAÇÃO DHCP; 
+		4) DHCP ACK: o servidor responde a mensagem de requisição DHCP com uma MENSAGEM DHCP ACK, confirmando os parâmetros requisitados;
+
+Domínio com endereços privados - refere-se a uma rede cujos endereços somente tem significado para equipamentos pertencente àquela rede;
+
+
+NAT(TRADUÇÃO DE ENDEREÇOS DE REDE-Network Adress Translation) - o roteador que usa NAT oculta do mundo exterior as detalhes da rede privada(residencial);
+
+
+ICMP(PROTOCOLO DE MENSAGENS DE CONTROLE DA INTERNET) - é usado por hospedeiros e roteadores para comunicar informações de camada de rede entre si. A utilização mais comum do ICMP é para comunicação de erros.
+	- Tipos de mensagem ICMP:
+	
+		ICMP Type		Code		Description
+		   0			 0		echo reply (to ping)
+		   3 			 0 		destination network unreachable
+		   3 			 1 		destination host unreachable
+		   3			 2 		destination protocol unreachable
+		   3			 3		destination port unreachable
+		   3			 6		destination network unknown
+		   3			 7 		destination host unknown
+		   4			 0 		source quench (congestion control)
+		   8 			 0		echo request
+		   9 			 0		router advertisement
+		  10			 0		router discovery
+		  11			 0 		TTL expired
+		  12 			 0		IP header bad
+
+
+FORMATO DATAGRAMA IPv6(40 bytes) - mudanças mais importantes introduzidas:
+	- Capacidade de endereçamento expandida: o IPv6 aumenta o tamanho do endereço de IP de 32 bits para 128 bits;
+	- Cabeçalho aprimorado(40 bytes): permite processamento mais veloz do datagrama IP;
+	- Rotulação de fluxo e prioridade: pode ser usado para dar prioridade a certos datagramas em um fluxo ou a datagramas de certas aplicações;
+    O IPv6 revela uma estrutura simples e aprimorada para o datagrama IP:
+	- Versão(4 bits): identifica o número da versão do IP. Note que colocar o valor 4 nesse campo não cria um datagrama IPv4 válido;
+	- Classe de tráfego(8 bits): tem função semelhante à do campo ToS que o tem o IPv4;
+	- Rótulo de fluxo(20 bits): usado para identificar um fluxo de datagramas;
+	- Comprimento de carga útil(16 bits): número inteiro sem sinal que dá o número de bytes no datagrama IPv6 que segue ao pacote do cabeçalho;
+	- Próximo cabeçalho: identifica o protocolo ao qual o conteúdo(campo de dados) desse datagrama será entregue, por exemplo, TCP ou UDP;
+	- Limite de saltos: o conteúdo desse campo é decrementado em 1 para cada roteador que passa o datagrama. Se chegar a 0, o datagrama é descartado;
+	- Endereços de origem e destino: remetente e destinatário, respectivamente;
+	- Dados: carga útil do datagrama IPv6, quando este alcança seu destino, a carga útil é extraída do datagrama e passada adiante para o protocolo especificado no campo próximo cabeçalho;
+
+

@@ -1,0 +1,19 @@
+								Protocolo de acesso múltiplo
+
+Regulam a transmissão pelos canais de difusão compartilhados. Assegura que o canal de difusão realize todo o trabalho útil quando há vários nós ativos; Pode-se classificar praticamente qualquer protocolo de acesso múltiplo em uma das seguintes categorias: 
+	- Protocolos de divisão de canal: divide a taxa de transmissão do enlace em R/N bits/s;
+		TDM(Multiplexação por divisão de tempo)- atribuem aos nós intervalos de tempo;
+		FDM(Multiplexação por divisão de frequência) - atribuem aos nós intervalos de frequência;
+		CDMA(Acesso múltiplo por divisão de código) - atribui um código diferente a cada nó, permitindo que nós diferentes transmitam simultaneamente;
+	- Protocolos de acesso aleatório: sempre transmite à taxa total do canal, R bits/s;
+		Slotted ALOHA - detecta colisões e decide de modo independente quando retransmitir os quadros; requer que todos os nós sincronizem suas transmissões para que comecem no ínicio de um intervalo;
+		CSMA e CSMA/DS - incorporam as regras de detecção de portadora e detecção de colisão aos protocolos de acesso múltiplo, respectivamente;
+	- Protocolos de revezamento: 
+		Polling(Seleção) - seleciona cada um dos nós por alternância circular, dizendo que tal nó pode transmitir até certo número máximo de quadros, eliminando as colisões e os intervalos vazios;
+		Permissão(token) - um quadro de permissão é passado entre os nós obdecendo a uma determinada ordem fixa. Se um nó tem quadros para transferir quando recebe a permissão, ele envia um número máximo de quadros e, em seguida, passa a permissão para o nó seguinte;
+
+DETECÇÃO DE PORTADORA - um nó ouve o canal antes de transmitir. Se um quadro de outro nó estiver sendo transmitido para dentro do canal, o nó então esperará até que não detecte transmissões por um período de tempo curto, e então iniciará a transmissão;
+
+DETECÇÃO DE COLISÃO - um nó que está transmitindo ouve o canal enquanto transmite. Se esse nó detectar que outro nó está transmitindo um quadro inteferente, ele para de transmitire espero por algum tempo antes de repetir o ciclo de dectar-e-tansmitir-quando-ocioso;
+
+DOCSIS - protocolo da camada de enlace para acesso à internet a cabo;

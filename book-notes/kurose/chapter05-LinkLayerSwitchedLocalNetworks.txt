@@ -1,0 +1,27 @@
+							Endereçamento na camada de enlace e ARP
+
+ARP(Address Resolution Protocol) - o protocolo de resolução de endereço oferece um mecanismo que habilita a os nós a traduzirem endereços IP para endereços da camada de enlace(endereço MAC);
+
+Pacote ARP - um pacote ARP tem diversos campos incluindo o endereço IP e MAC de envio e recepção. Os pacotes ARP de consulta e de resposta tém o mesmo formato. A finalidade do pacote de consulta ARP é pesquisar todos os outros hospedeiros e roteadores na sub-rede para determinar o endereço MAC correspondente ao endereço IP que está sendo convertido; A mensagem de consulta ARP é enviada dentro de um quadro de difusão, ao passo que a mensagem de resposta ARP é enviada dentro de um quadro padrão;
+
+Obs:
+	- não é o nó que tem um endereço da camada de rede, mas o adaptador do nó;
+	- a função do comutador da camada de enlace é transportar datagramas entre hospedeiros e roteadores;
+	- um endereço da camada de enlace é também denominado:
+		1) Endereço de LAN;
+		2) Endereço físico;
+		3) Endereço MAC;
+
+MAC(Media Acess Control) - controle de acesso ao meio;
+
+Endereço MAC: 
+		Tamanho: 6 bytes (expressos em notação hexadecimal);
+		Possibilidades: 2**48; 
+		Não existe dois adaptadores com o mesmo endereço MAC;
+		Os primeiros 24 bits identificam a empresa fabricante do adaptador;
+		Os últimos 24 bits ficam disponíveis para que cada empresa crie combinações exclusivas para cada adaptador;
+	
+Endereço de difusão MAC - endereço indicado no destinátario utilizado para que todos os outros adaptadores na LAN recebam e processem os quadros à serem enviados pelo remetente;
+		Endereço de difusão: FF-FF-FF-FF-FF-FF (cadeia de 48 bits 1 consecutivos em hexadecimal);
+
+

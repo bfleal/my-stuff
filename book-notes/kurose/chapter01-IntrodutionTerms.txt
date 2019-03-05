@@ -1,0 +1,45 @@
+						Alguns conceitos e nomenclaturas
+
+Enlaces - links de comunicação
+
+Pacotes - Quando um sistema final possi dados para enviar o outro sistema final, o sistema emissor segmenta esses dados e adiciona bytes de cabeçalho a cada segmento.
+
+Protocolo - Um protocolo define o formato e a ordem e a troca de mensagens entre a comunicação de duas ou mais entidades, como ações de transmissão e/ou recebmento de mensagens ou outro evento.
+
+DSL(Digital Subscriber Line) - Linha digital do assinante.
+
+FTTH(Fiber To The  Home) - Conceito que prove um cabo de fibra ótica diretamente do centro de distribuição para casa.
+
+ICMP(Internet Control Message Protocol) - é um protocolo integrante do Protocolo IP, definido pelo RFC 792, e utilizado para fornecer relatórios de erros à fonte original.
+
+Tempo de transmissão de pacotes(delay de ponta a ponta) - NL/R, N número de links em cada transferência de pacote, L bits e R taxa de transmissão(bits/sec).
+
+Tipos de atraso:
+	Atraso de processamento - Tempo exigido para examinar o cabeçalho do pacote e determinar para onde direcioná-lo(microssegundos).
+	
+	Atraso de fila - Tempo exigido para o pacote ser transmitido para o enlace(ligação)(micro a milissegundos).
+
+	Atraso de transmissão - Tempo exigido para transmitir todos os pacotes para o enlace, ou seja, para começar a transmissão(milissegundos) -> L/R :
+				L-tamanho do pacote em bits, R-velocidade de transmissão entre os pontos(bits/seg).
+
+	Atraso de propagação - Tempo necessário para propagar o bit desde o ínicio do enlace até o outro roteador. Depende do meio físico, podendo chegar 
+			       próximo à velocidade da luz(milissegundos) -> d/s : d-distância entre os pontos(roteadores), s-velocidade de propagação do
+			       enlace.
+
+	Atraso total - Dado pela soma dos atrasos de processamento, de fila, de transmissão e de propagação.
+
+	Atraso fim a fim(Origem-Destino) - atrasoff = N(processamento + transmissão + propagação) -> N-número de roteadores entre a origem e o destino.
+
+Intensidade de tráfego - Estima o tamanho do atraso na fila -> La/R : a-taxa média com que os pacotes chegam à fila(pacotes/seg):
+ 			 	Se La/R > 1 a fila e seu atraso tende ao infinito;
+			 	Se La/R <= 1 atraso depende do meio, pode ser ingnificante ou não;
+
+Perda de pacotes - A capacidade da fila que precede o enlace e finita, com o AUMENTO DA INTENSIDADE DO TRÁFEGO um pacote pode chegar e encontrar a fila cheia. Sem espaço para armazená-lo, o roteador e descartará, isto é, ele será perdido.
+
+Vazão instantânea - Taxa de recebimento do arquivo(taxa de download).
+
+Vazão média - Taxa de envio do arquivo(taxa de upload).
+
+Analisador de Pacotes(packet sniffer) - Receptor que pode obter uma cópia de cada pacote transmitido na rede, pacotes estes que podem conter todo tipo de informação, tais como, senhas, número de identificação, segredos comerciais e mensagens pessoais.
+
+

@@ -1,0 +1,10 @@
+						Virtualização de enlace: Uma rede como camada de enlace
+
+Comutação de Rótulo Multiprotocolo(MPLS - Multiprotocol Label Switching):
+	- rede de comutação de pacotes por circuitos virtuais;
+	- executa comutação com base em rótulos, sem precisar considerar o endereço IP de um pacote; 
+	- o protocolo pode ser usado para realizar restauração rápida de caminhos de repasse MPLS, por exemplo, mudar a rota do tráfego que passa por um caminho previamente calculado, restabelecido, em resposta à falha de enlace;
+	- tem sido utilizado para implementar as denominada redes virtuais privadas(VPN - Virtual Private Networks);
+	- pode ser usado para isolar os recursos e o endereçamento utilizados pela VPN do cliente dos outros usuários que estão cruzando a rede;
+
+Roteador de comutação de rótulo - é um roteador habilitado para MPLS que repassa um quadro MPLS consultando o rótulo MPLS em sua tabela de repasse e, então, passando imediatamente o datagrama para a interface de saída apropriada. Assim, o roteador habilitado para MPLS não precisa extrair o endereço de destino e executar uma busca para fazer a compatibilização com o prefixo mais longo na tabela de repasse;

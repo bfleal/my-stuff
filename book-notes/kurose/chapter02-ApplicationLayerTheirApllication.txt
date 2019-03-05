@@ -1,0 +1,12 @@
+		Aplicações populares da internet, seus protocolos de camada de aplicações e seus protocolos de transporte subjacentes
+
+
+Aplicação 			Protocolo da camada de aplicação 	Protocolo de transporte subjacente
+
+Electronic mail 		SMTP [RFC 5321] 			TCP
+Remote terminal access 		Telnet [RFC 854] 			TCP
+Web 				HTTP [RFC 2616] 			TCP
+File transfer 			FTP [RFC 959] 				TCP
+Streaming multimedia 		HTTP (e.g., YouTube) 			TCP
+Internet telephony 		SIP [RFC 3261], RTP [RFC 3550], or 	UDP or TCP
+				proprietary(e.g., Skype)

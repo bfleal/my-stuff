@@ -1,0 +1,14 @@
+					Camada de Transporte
+
+IMPORTANTE
+	- Um protocolo da camada de transporte fornece COMUNICAÇÃO LÓGICA entre processos de aplicação que rodam em hospedeiros diferentes. Comunicação lógica nesse contexto significa que, do ponto de vista de uma APLICAÇÃO, tudo se passa como se os hospedeiros que rodam os processos estivessem conectador diretamente.
+
+	- Protocolos da camada de transporte são implementados em sistemas finais, mas não em roteadores de rede.
+
+FUNCIONAMENTO
+	- A camada de transporte converte as mensagens que recebe de um processo da camada de aplicação em pacotes de camada de transporte, chamados SEGMENTOS DE CAMADA DE TRANSPORTE, isto é feito fragmentando-se as mensagens da aplicação em pedaços menores e adicionando-se um cabeçalho de camada de transporte a cada pedaço para criar o segmento da camada de transporte, que então é passado para a camada de rede e enviado ao destinatário.
+
+MULTIPLEXAÇÃO E DEMULTIPLEXAÇÃO 
+	- Na camada de transporte, é a ampliação se serviço de entrega hospedeiro a hospedeiro provido pela camada de rede para um serviço de entrega processo a processo para aplicações que rodem nesses hospedeiros;
+	- Demultiplexação(destino), tarefa de entregar os dados contidos em um segmento da camada de transporte ao socket correto;
+	- Multiplexação(origem), tarede de reunir partes de dados provenientes de vários sockets, inserir-lhes cabeçalho para criar segmentos e passá-los a rede;

@@ -1,0 +1,42 @@
+						TCP - Transmission Control Protocol
+
+- Orientado para conexões porque, antes que um processo de aplicação possa começar enviar dados a outro, os dois precisam primeiro se "apresentar" - isto é, devem enviar alguns segmentos preliminares um ao outro para estabelecer oa paramêtros da transferência de dados.
+
+- Apresentação de 3 vias(3-way handshake).
+
+- Cabeçalho de 20 bytes.
+
+- Buffer de envio: é um dos buffers reservados durante a apresentação de 3 vias para o qual o TCP direciona seus dados.
+
+- MSS(maximum segment size): tamanho máximo de segmento.
+
+- MTU(maximum transmission unit): unidade máxima de transmissão.
+
+- Controle de fluxo: serviço de compatibilização de velocidades, compatibiliza a taxa a qual o remetente está enviando com àquela a qual a aplicação está lendo.
+
+- Janela de congestionamento(congestion window - cwnd): taxa de transmissão; 
+
+- Vazão média de um conexão = 0,75*W/RTT, W(valor da janela de congestionamento quando ocorre perda de pacote) ou 1,22*MSS/RTT*sqrt(L), L(taxa de perda);
+
+FUNCIONAMENTO
+	1) O lado cliente do TCP primeiro envia um segmento TCP especial ao lado servidor do TCP. Esse segmento especial não contém dado de camada de aplicação, mas dados de cabeçalho para iniciar a conexão. Esse segmento é encapsulado em um datagrama IP e enviado ao servidor;
+	2) Assim que o datagrama contendo o segmento de identificação chega ao hospedeiro servidor, o servidor extrai o segmento do datagrama, aloca buffers e variáveis TCP à conexão e envia um segmento de aceitação de conexão ao cliente(este segmento também não contém nenhum dado da camada de aplicação);
+	3) Ao receber o segmento de concessão de conexão(SYNACK), o cliente reserva buffers e variáveis para a conexão. Nessa etapa o cliente envia novos segmentos ao servidor agora podendo conduzir dados cliente/servidor na carga útil do segmento;
+	
+CONTROLE DE CONGESTIONAMENTO
+	1) Fim a fim - nesse método, a camada de rede não fornece nenhum suporte explícito à camada de transporte com a finalidade de controle de congestionamento. O TCP deve necessáriamente adotar esse método uma vez que a camada IP não fornece suporte ao controle de congestionamento;
+	2) Assistido pela rede - com esse método, os componentes da camada de rede(roteadores) fornecem retroalimentação(como 1 bit informando o estado da rede) específica de informações ao remetente a respeito do estado de congestionamento na rede(ATM ABR);
+
+PRINCÍPIOS UTILIZADOS PELO TCP
+	1) Um segmento perdido implica congestionamento, portanto, a taxa do remetente TCP deve diminuir quando um segmento é perdido;
+	2) Um segmento reconhecido indica que a rede está enviando os segmentos do remetente ao destinatário e, por isso, a taxa do remetente pode aumentar quando um ACK chegar para um segmento não reconhecido antes;
+	3) Busca por banda larga, aumenta a taxa em resposta aos ACKs que chegam até que ocorra um evento de perda, momento em que a taxa de transmissão diminui;
+
+
+ALGORITMO DE CONTROLE DE CONGESTIONAMENTO TCP - o algoritmo possui 3 componentes principais: partida lenta, contenção de congestionamento e recuperação rápida.
+	1) Partida lenta - o valor da janela de congestionamenteo começa em 1 MMS(maximum segmente size), resultando em uma taxa de envio de aproximadamente MMS/tempo. Como a largura de banda disponível para a conexão pode ser muito maior do que a dado por MMS/tempo, o remetente TCP gostaria de aumentar a quantidade de largura de banda rapidamente, dessa forma, no estado de partida lenta, o valor da janela de congestionamento começa em 1 MMS e toda vez que um segmento transmitido é reconhecido aumenta 1 MMS para cada reconhecimento(potência de 2);
+	2) Prevenção de congestionamento - ao entrar no estado de prevenção de congestionamento, o valor da janela de congestionamento é cerca da metade de seu valor quando o congestionamento foi encontrado pela última vez. Desta forma, em vez de duplicar o valor de cwnd a cada RTT(round trip time), o TCP aumento a valor de cwnd em um único MSS a cada RTT, uma abordagem comum é o remetente aumentar cwnd por MMS bytes(MSS/cwnd) no momento em que um novo reconhecimento chegar, ocorre quando há um esgotamento de temporização ou por um evento ACK duplica triplo;
+	3) Recuperação rápida - na recuperação rápida, o valor de cwnd é aumentado em 1 MSS para ACK duplicado recebido no segmento perdido que fez o TCP entrar no mode de recuperação rápida. Quando um ACK chega ao segmento perdido, o TCP entra no modo de prevenção de congestionamento após reduzir cwnd. Se houver um evento de esgotamento de temporização, a recuperação rápida é alterada para o modo de partida lenta;
+	4) Conclusão - o controle de congestionamento do TCP consiste em um aumento linear(aditivo) em cwnd de 1 MMS por RTT e, então, uma redução à metade(diminuição multiplicativa) de cwnd em um evento ACK duplicado triplo. Por essa razão, o controle de congestionamento no TCP é quase sempre denominado AUMENTO ADITIVO, DIMINUIÇÃO MULTIPLICATIVA(AIMD - Additive-Increase, Multiplicative-Decrease);
+
+- Equidade: ocorre quando a taxa média de transmissão(R bits/s) de cada conexão(para N conexões) for mais ou menos R/K, isto é, cada uma obtém uma parcela igual da largura de banda do enlace; O algoritmo AIMD é justo;

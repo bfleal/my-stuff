@@ -1,0 +1,5 @@
+			Frequência dos canais de comunicação
+
+Canal de download 		Alta velocidade			entre 50 kHz e 1 MHz
+Canal de upload			Média velocidade		entre 4 kHz e 50 kHz
+Canal de telefone		Dois caminhos			entre 0 e 4 kHz

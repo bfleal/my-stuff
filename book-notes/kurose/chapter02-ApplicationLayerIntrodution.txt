@@ -1,0 +1,13 @@
+					Camada de Aplicação - Alguns Termos e Conceitos
+
+Arquitetura de aplicação - Determina como a aplicação é organizada nos sistemas finais. As duas arquiteturas mais utilizadas em aplicações modernas de rede são, CLIENTE-SERVIDOR e P2P:
+		Cliente-servidor - Há um hospedeiro sempre funcionando denominado SERVIDOR, que atende as requisições de muitos outros hospedeiros, denominados	CLIENTES;
+		P2P - A aplicação utiliza a comunicação direto entre duplas de hospedeiros conectados alternadamente, denominados pares. Eles não são de propriedade dos provedores de serviços, mas são controlados por usuários de computadores(bitTorrent, Skype, etc);
+
+Processo - Programa que está rodando no sistema final que podem se comunicar trocando MENSAGENS pela rede.
+
+Socket - Interface de software(entre a camada de aplicação e de transporte) que envia e recebe mensagens pela rede.(Analagia: Processo -> Casa, Socket -> Porta);
+
+Protocolo de camada de aplicação - Define como processos de uma aplicação, que funcionam em sistemas finais diferentes, passam mensagens entre si.
+
+SSL(Secure Sockets Layer) - Camada de socket seguro, aperfeiçoamento para o TCP que oferece serviços importantes de segurança processo a processo, incluindo codificação, integridade dos dados e autenticação do ponto de chegada(dever ser implementado pelo desenvolvedor na aplicação). 

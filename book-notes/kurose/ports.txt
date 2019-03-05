@@ -1,0 +1,10 @@
+						Portas	
+
+- Cada número de porta é um número de 16 bits na faixa de 0 a 65535. Podem ser consultados em : 
+	
+		https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xml
+
+- Números de portas são atribuídos de várias formas, baseadas em 3 intervalos:
+		System Ports (0-1023)
+		User Ports (1024-49151)
+		Dynamic and/or Private Ports (49152-65535)
